@@ -1,0 +1,28 @@
+{
+  "name": "mmenu",
+  "main": "mmenu.js",
+  "version": "1.0.0",
+  "description": "Multilevel Menu for Bootstrap",
+  "moduleType": [
+    "globals"
+  ],
+  "keywords": [
+    "bootstrap",
+    "menu"
+  ],
+  "authors": [
+    "Marco Pfeiffer <marco@hauptsache.net>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "Public/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": ">= 1.9.1"
+  }
+}

@@ -1,0 +1,121 @@
+// this file requires bootstrap variables to be present
+
+.mmenu {
+  background-color: @body-bg;
+
+  // overwrite behavior to color in "li" instead of "a"
+  .nav-pills > li:hover > a {
+    color: #fff;
+    background-color: @nav-pills-active-link-hover-bg;
+  }
+
+  // desktop
+  @media (min-width: @grid-float-breakpoint) {
+    &.collapse {
+      display: block;
+      visibility: visible;
+    }
+  }
+
+  // mobile
+  @media (max-width: @grid-float-breakpoint-max) {
+    clear: both;
+    position: relative;
+    .make-row;
+
+    height: @navbar-collapse-max-height;
+    overflow: auto;
+
+    > .nav > li {
+      float: none;
+    }
+
+    li.mmenu-dropdown {
+      // ! this value is also used to detect breakpoint in navigation.js
+      position: static;
+    }
+  }
+}
+
+ul.mmenu-dropdown-menu {
+
+  position: absolute;
+  z-index: @zindex-dropdown;
+  width: 100%;
+
+  ul.mmenu-dropdown-menu {
+    top: 0;
+    left: 100%;
+  }
+
+  // mobile
+  @media (max-width: @grid-float-breakpoint-max) {
+    height: @navbar-collapse-max-height;
+
+    .transition(left .2s ease-in);
+    left: 100%;
+    top: 0;
+
+    li.click-open > & {
+      .transition(left .2s ease-out);
+      left: 0;
+    }
+  }
+
+  // desktop
+  @media (min-width: @grid-float-breakpoint) {
+    .transition(all 0s linear .15s);
+
+    visibility: hidden;
+    :hover > & {
+      visibility: visible;
+    }
+
+    > .mmenu-back {
+      display: none;
+    }
+  }
+
+  // look
+
+  @dropdown-level-darkening: 14%;
+  @dropdown-color1: #B0B7BD;
+  @dropdown-color2: darken(@dropdown-color1, @dropdown-level-darkening);
+  @dropdown-color3: darken(@dropdown-color2, @dropdown-level-darkening);
+  @highlight-color: #dae0e3;
+
+  background-color: @dropdown-color1;
+  > li:hover > a {
+    background-color: @dropdown-color2;
+  }
+
+  .mmenu-dropdown-menu {
+    background-color: @dropdown-color2;
+    > li > a {
+      color: #fff;
+    }
+    > li:hover > a {
+      background-color: @dropdown-color3;
+    }
+  }
+
+  > li {
+    border-bottom: 2px solid @highlight-color;
+  }
+
+  > li.mmenu-back {
+    background-color: @highlight-color;
+    > a {
+      color: @link-color;
+      &:hover {
+        color: @nav-pills-active-link-hover-color;
+      }
+    }
+  }
+}
+
+.mmenu-toggle {
+  @media (min-width: @grid-float-breakpoint) {
+    display: none;
+  }
+}

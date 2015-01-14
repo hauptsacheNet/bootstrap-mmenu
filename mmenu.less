@@ -4,7 +4,7 @@
   background-color: @body-bg;
 
   // overwrite behavior to color in "li" instead of "a"
-  .nav-pills > li:hover > a {
+  > ul > li:hover > a {
     color: #fff;
     background-color: @nav-pills-active-link-hover-bg;
   }
@@ -41,11 +41,16 @@ ul.mmenu-dropdown-menu {
 
   position: absolute;
   z-index: @zindex-dropdown;
-  width: 100%;
+  min-width: 100%;
+  white-space: nowrap;
 
   ul.mmenu-dropdown-menu {
     top: 0;
     left: 100%;
+  }
+
+  &.nav-stacked > li {
+    margin-top: 0;
   }
 
   // mobile
@@ -78,24 +83,27 @@ ul.mmenu-dropdown-menu {
 
   // look
 
-  @dropdown-level-darkening: 14%;
-  @dropdown-color1: @dropdown-bg;
-  @dropdown-color2: darken(@dropdown-color1, @dropdown-level-darkening);
-  @dropdown-color3: darken(@dropdown-color2, @dropdown-level-darkening);
+  @dropdown-level-darkening: 12%;
 
-  background-color: @dropdown-color1;
-  > li:hover > a {
-    background-color: @dropdown-color2;
+  .submenu-colors (@dropdown-color) {
+
+    background-color: @dropdown-color;
+    > li {
+      > a {
+        color: contrast(@dropdown-color, @link-color, @nav-pills-active-link-hover-color, 60%);
+      }
+      &:hover > a {
+        background-color: darken(@dropdown-color, @dropdown-level-darkening);
+      }
+    }
   }
 
-  .mmenu-dropdown-menu {
-    background-color: @dropdown-color2;
-    > li > a {
-      color: #fff;
-    }
-    > li:hover > a {
-      background-color: @dropdown-color3;
-    }
+  // level 1
+  .submenu-colors(@dropdown-bg);
+
+  // level 2
+  ul.mmenu-dropdown-menu {
+    .submenu-colors(darken(@dropdown-bg, @dropdown-level-darkening));
   }
 
   > li {

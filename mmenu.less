@@ -79,10 +79,10 @@ ul.mmenu-dropdown-menu {
   // look
 
   @dropdown-level-darkening: 14%;
-  @dropdown-color1: #B0B7BD;
+  @dropdown-color1: @dropdown-bg;
   @dropdown-color2: darken(@dropdown-color1, @dropdown-level-darkening);
   @dropdown-color3: darken(@dropdown-color2, @dropdown-level-darkening);
-  @highlight-color: #dae0e3;
+  @highlight-color: @dropdown-border;
 
   background-color: @dropdown-color1;
   > li:hover > a {

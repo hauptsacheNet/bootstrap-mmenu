@@ -1,7 +1,7 @@
 // this file requires bootstrap variables to be present
 
 .mmenu {
-  background-color: @body-bg;
+  background-color: @navbar-default-bg;
 
   // overwrite behavior to color in "li" instead of "a"
   > ul > li:hover > a {
@@ -33,6 +33,10 @@
     li.mmenu-dropdown {
       // ! this value is also used to detect breakpoint in navigation.js
       position: static;
+    }
+
+    ul > li {
+      border-bottom: 2px solid @dropdown-divider-bg;
     }
   }
 }
@@ -83,7 +87,7 @@ ul.mmenu-dropdown-menu {
 
   // look
 
-  @dropdown-level-darkening: 12%;
+  @dropdown-level-darkening: 14%;
 
   .submenu-colors (@dropdown-color) {
 
@@ -106,16 +110,17 @@ ul.mmenu-dropdown-menu {
     .submenu-colors(darken(@dropdown-bg, @dropdown-level-darkening));
   }
 
-  > li {
-    border-bottom: 2px solid @dropdown-divider-bg;
+  // level 3
+  ul.mmenu-dropdown-menu ul.mmenu-dropdown-menu {
+    .submenu-colors(darken(@dropdown-bg, @dropdown-level-darkening * 2));
   }
 
   > li.mmenu-back {
     background-color: @dropdown-divider-bg;
     > a {
-      color: @link-color;
+      color: @link-color !important;
       &:hover {
-        color: @nav-pills-active-link-hover-color;
+        color: @nav-pills-active-link-hover-color !important;
       }
     }
   }
@@ -124,5 +129,15 @@ ul.mmenu-dropdown-menu {
 .mmenu-toggle {
   @media (min-width: @grid-float-breakpoint) {
     display: none;
+  }
+  @media (max-width: @grid-float-breakpoint-max) {
+    border-color: @navbar-default-toggle-border-color;
+    &:hover,
+    &:focus {
+      background-color: @navbar-default-toggle-hover-bg;
+    }
+    .icon-bar {
+      background-color: @navbar-default-toggle-icon-bar-bg;
+    }
   }
 }

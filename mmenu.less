@@ -82,7 +82,6 @@ ul.mmenu-dropdown-menu {
   @dropdown-color1: @dropdown-bg;
   @dropdown-color2: darken(@dropdown-color1, @dropdown-level-darkening);
   @dropdown-color3: darken(@dropdown-color2, @dropdown-level-darkening);
-  @highlight-color: @dropdown-border;
 
   background-color: @dropdown-color1;
   > li:hover > a {
@@ -100,11 +99,11 @@ ul.mmenu-dropdown-menu {
   }
 
   > li {
-    border-bottom: 2px solid @highlight-color;
+    border-bottom: 2px solid @dropdown-divider-bg;
   }
 
   > li.mmenu-back {
-    background-color: @highlight-color;
+    background-color: @dropdown-divider-bg;
     > a {
       color: @link-color;
       &:hover {

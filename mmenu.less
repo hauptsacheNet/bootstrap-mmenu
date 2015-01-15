@@ -18,14 +18,15 @@
     .make-row;
 
     height: @navbar-collapse-max-height;
-    overflow: auto;
+    overflow-x: hidden;
+    overflow-y: auto;
 
     > .nav > li {
       float: none;
     }
 
     li.mmenu-dropdown {
-      // ! this value is also used to detect breakpoint in navigation.js
+      // ! this value is also used to detect breakpoint in mmenu.js
       position: static;
     }
 
@@ -84,7 +85,6 @@ ul.mmenu-dropdown-menu {
   @dropdown-level-darkening: 14%;
 
   .submenu-colors (@dropdown-color) {
-
     background-color: @dropdown-color;
     > li {
       > a {

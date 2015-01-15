@@ -3,12 +3,6 @@
 .mmenu {
   background-color: @navbar-default-bg;
 
-  // overwrite behavior to color in "li" instead of "a"
-  > ul > li:hover > a {
-    color: #fff;
-    background-color: @nav-pills-active-link-hover-bg;
-  }
-
   // desktop
   @media (min-width: @grid-float-breakpoint) {
     &.collapse {
@@ -94,7 +88,7 @@ ul.mmenu-dropdown-menu {
     background-color: @dropdown-color;
     > li {
       > a {
-        color: contrast(@dropdown-color, @link-color, @nav-pills-active-link-hover-color, 60%);
+        color: contrast(@dropdown-color, @dropdown-link-color, @nav-pills-active-link-hover-color, 60%);
       }
       &:hover > a {
         background-color: darken(@dropdown-color, @dropdown-level-darkening);

@@ -15,7 +15,6 @@
   @media (max-width: @grid-float-breakpoint-max) {
     clear: both;
     position: relative;
-    .make-row;
 
     height: @navbar-collapse-max-height;
     overflow-x: hidden;
@@ -33,6 +32,11 @@
     ul > li {
       border-bottom: 2px solid @dropdown-divider-bg;
     }
+  }
+
+  // one row mobile
+  @media (max-width: @screen-xs-max) {
+      .make-row();
   }
 }
 

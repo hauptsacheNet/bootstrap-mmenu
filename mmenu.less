@@ -89,36 +89,32 @@ ul.mmenu-dropdown-menu {
   @dropdown-level-darkening: 14%;
 
   .submenu-colors (@dropdown-color) {
-    background-color: @dropdown-color;
-    > li {
-      > a {
-        color: contrast(@dropdown-color, @dropdown-link-color, @nav-pills-active-link-hover-color, 60%);
-      }
-      &:hover > a {
-        background-color: darken(@dropdown-color, @dropdown-level-darkening);
-      }
+    > a {
+      color: contrast(@dropdown-color, @dropdown-link-color, @nav-pills-active-link-hover-color, 60%);
+    }
+    &:hover > a,
+    &:focus > a,
+    &.focus > a {
+      background-color: darken(@dropdown-color, @dropdown-level-darkening);
     }
   }
 
   // level 1
-  .submenu-colors(@dropdown-bg);
-
-  // level 2
-  ul.mmenu-dropdown-menu {
-    .submenu-colors(darken(@dropdown-bg, @dropdown-level-darkening));
+  background-color: @dropdown-bg;
+  > li {
+    .submenu-colors(@dropdown-bg);
   }
 
-  // level 3
-  ul.mmenu-dropdown-menu ul.mmenu-dropdown-menu {
-    .submenu-colors(darken(@dropdown-bg, @dropdown-level-darkening * 2));
-  }
+  // back button
 
   > li.mmenu-back {
-    background-color: @dropdown-divider-bg;
     > a {
-      color: @link-color !important;
-      &:hover {
-        color: @nav-pills-active-link-hover-color !important;
+      background-color: @dropdown-divider-bg;
+      color: @link-color;
+      &:hover,
+      &:focus,
+      &.focus {
+        color: @nav-pills-active-link-hover-color;
       }
     }
   }

@@ -29,7 +29,7 @@
 
     $document.on('click', '[data-mmenu="overview"]', function (e) {
         var $menu = $(this).closest('li.mmenu-dropdown');
-        var $link = $menu.prev('a');
+        var $link = $menu.children('a[href]');
 
         if ($link.length === 1) {
             return;

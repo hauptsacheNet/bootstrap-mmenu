@@ -30,13 +30,12 @@
     $document.on('click', '[data-mmenu="overview"]', function (e) {
         var $menu = $(this).closest('li.mmenu-dropdown');
         var $link = $menu.children('a[href]');
+        var link = $link.prop('href');
+        console.log($menu, link);
 
-        if ($link.length === 1) {
-            return;
+        if (link) {
+            location.href = link;
         }
-
-        e.preventDefault();
-        location.href = $link.prop('href');
     });
 
     $document.on('ready update', function (e) {

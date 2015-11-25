@@ -36,6 +36,7 @@
         if (link) {
             location.href = link;
         }
+        e.preventDefault();
     });
 
     $document.on('ready update', function (e) {

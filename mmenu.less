@@ -75,8 +75,11 @@
     .transition(visibility 0s linear .15s);
 
     visibility: hidden;
+    opacity: 0;
     :hover > & {
+      .transition(opacity 0s linear .15s);
       visibility: visible;
+      opacity: 1;
     }
 
     > .mmenu-back {

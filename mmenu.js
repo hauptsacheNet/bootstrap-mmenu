@@ -55,4 +55,8 @@
         });
     });
 
+    $('.mmenu-dropdown').on('focusin focusout', function (evt) {
+        $(this).toggleClass('focus', evt.type === 'focusin');
+    });
+
 })(jQuery);
